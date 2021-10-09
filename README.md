@@ -1,2 +1,2 @@
-# JWT_Auth_App
- Authentication software
+# ShapeShifter
+  Plotting randomized Shapes onto a JFrame using JPanel and JButtons
