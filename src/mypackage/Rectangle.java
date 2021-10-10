@@ -1,11 +1,17 @@
 package mypackage;
 
-public class Rectangle implements Shape, Comparable<Object>{
-	
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.*;
+
+public class Rectangle extends Shape {
+
 	private int x;
 	private int y;
 	private int width;
 	private int height;
+	private Color shapeColor;
 
 	public Rectangle() {
 	}
@@ -15,32 +21,28 @@ public class Rectangle implements Shape, Comparable<Object>{
 		this.y = r.y;
 		this.width = r.width;
 		this.height = r.height;
+		this.shapeColor = r.shapeColor;
 	}
 
-	public Rectangle(int x, int y, int width, int height) {
+	public Rectangle(int x, int y, int width, int height, Color shapeColor) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.shapeColor = shapeColor;
 	}
-	
-	@Override
+
 	public int getArea() {
 		return (int) height * width;
 	}
-	
-	@Override
-	public int compareTo(Object o) {
-		
-		if (o.getClass().equals(mypackage.Circle.class)) {
-			return  (int)(this.getArea() - ((Circle) o).getArea());
-		}else if (o.getClass().equals(mypackage.Rectangle.class)) {
-			return  (int)(this.getArea() - ((Rectangle) o).getArea());
-		}else{
-			return  (int)(this.getArea() - ((Square) o).getArea());
-		}
+
+	public void draw(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setColor(shapeColor);
+		g2.fillRect(x, y, width, height);
 	}
 
+	@Override
 	public int getX() {
 		return x;
 	}
@@ -49,6 +51,7 @@ public class Rectangle implements Shape, Comparable<Object>{
 		this.x = x;
 	}
 
+	@Override
 	public int getY() {
 		return y;
 	}
@@ -73,5 +76,12 @@ public class Rectangle implements Shape, Comparable<Object>{
 		this.height = height;
 	}
 
-	
+	public Color getShapeColor() {
+		return shapeColor;
+	}
+
+	public void setShapeColor(Color shapeColor) {
+		this.shapeColor = shapeColor;
+	}
+
 }
