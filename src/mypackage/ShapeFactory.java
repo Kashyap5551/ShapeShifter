@@ -35,7 +35,7 @@ public class ShapeFactory {
 
 			if (i == 2) {
 				// Circle
-				Shape newCir = new Circle(xCor, yCor, ranWidth, ranHeight, ranColor);
+				Shape newCir = new Circle(xCor, yCor, ranWidth, ranWidth, ranColor);
 				shapes.add(newCir);
 			}
 			xCor += 70;

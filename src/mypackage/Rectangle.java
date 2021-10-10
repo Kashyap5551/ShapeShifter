@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.*;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Comparable<Shape> {
 
 	private int x;
 	private int y;
@@ -42,7 +42,6 @@ public class Rectangle extends Shape {
 		g2.fillRect(x, y, width, height);
 	}
 
-	@Override
 	public int getX() {
 		return x;
 	}
@@ -51,7 +50,6 @@ public class Rectangle extends Shape {
 		this.x = x;
 	}
 
-	@Override
 	public int getY() {
 		return y;
 	}

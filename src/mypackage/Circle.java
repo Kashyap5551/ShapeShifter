@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-public class Circle extends Shape {
+public class Circle extends Shape implements Comparable<Shape> {
 	private int x;
 	private int y;
 	private int width;
@@ -32,19 +32,16 @@ public class Circle extends Shape {
 		this.shapeColor = shapeColor;
 	}
 
-	@Override
 	public int getArea() {
 		return (int) ((Math.PI * (this.getHeight() / 2) * (this.getWidth() / 2)));
 	}
 
-	@Override
 	public void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setColor(shapeColor);
 		g2.fillOval(x, y, width, height);
 	}
 
-	@Override
 	public int getX() {
 		return x;
 	}
@@ -53,7 +50,6 @@ public class Circle extends Shape {
 		this.x = x;
 	}
 
-	@Override
 	public int getY() {
 		return y;
 	}

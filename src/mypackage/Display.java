@@ -14,9 +14,8 @@ public class Display extends JPanel {
 	private List<Shape> shapes = new ArrayList<Shape>();
 
 	public Display() {
-	//	setLayout(null);
-		
-		
+		// setLayout(null);
+
 		JButton button = new JButton("Load shapes");
 
 		button.addActionListener(new ActionListener() {
@@ -29,17 +28,25 @@ public class Display extends JPanel {
 			}
 		});
 		add(button);
-		
+
 		JButton button2 = new JButton("Sort shapes");
 
 		button2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				List<Shape> newShapes = new ArrayList<Shape>();
-			    newShapes = SortingTechnique.sortShapes(shapes);
-			    shapes = newShapes;
-			    revalidate();
-				repaint();	
+				newShapes = SortingTechnique.sortShapes(shapes);
+				int xCoor = 10;
+				int yCoor = 10;
+				for (Shape sh : newShapes) {
+					sh.setX(xCoor);
+					sh.setY(yCoor);
+					xCoor += 70;
+					yCoor += 70;
+				}
+				shapes = newShapes;
+				revalidate();
+				repaint();
 			}
 		});
 		add(button2);

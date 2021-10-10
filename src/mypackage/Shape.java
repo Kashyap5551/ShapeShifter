@@ -2,7 +2,6 @@ package mypackage;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 public abstract class Shape implements Comparable<Shape> {
 	private int x;
@@ -38,12 +37,36 @@ public abstract class Shape implements Comparable<Shape> {
 	public int compareTo(Shape o) {
 
 		if (o instanceof Rectangle) {
-			return (int) (this.getArea() - ((Rectangle) o).getArea());
+			int res = 0;
+			if (this.getArea() < ((Rectangle) o).getArea()) {
+				res = -1;
+			}
+			if (this.getArea() > ((Rectangle) o).getArea()) {
+				res = 1;
+			}
+
+			return res;
 		}
 		if (o instanceof Circle) {
-			return (int) (this.getArea() - ((Circle) o).getArea());
+			int res = 0;
+			if (this.getArea() < ((Circle) o).getArea()) {
+				res = -1;
+			}
+			if (this.getArea() > ((Circle) o).getArea()) {
+				res = 1;
+			}
+
+			return res;
 		} else {
-			return (int) (this.getArea() - ((Square) o).getArea());
+			int res = 0;
+			if (this.getArea() < ((Square) o).getArea()) {
+				res = -1;
+			}
+			if (this.getArea() > ((Square) o).getArea()) {
+				res = 1;
+			}
+
+			return res;
 		}
 	}
 
